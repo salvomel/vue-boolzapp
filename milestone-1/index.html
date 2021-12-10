@@ -14,13 +14,17 @@
     <div id="root">
         <div class="main-container">
             <div class="app-container">
-                <!-- Left side -->
-                <div class="left-side">
+
+                <!-- LEFT SIDE -->
+                <aside class="left-side">
+                    
                     <!-- Top bar -->
                     <div class="top-bar">
                         <div class="top-bar-left">
-                            <img class="avatar-img" src="img/avatar_1.jpg" alt="">
-                            <span>NOME</span>
+                            <img class="avatar-img" src="img/avatar_io.jpg" alt="My avatar">
+                            <div class="user-name">
+                                <span>Nome Utente</span>
+                            </div>
                         </div>
                         <div class="top-bar-right">
                             <i class="fas fa-circle-notch"></i>
@@ -28,15 +32,49 @@
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
                     </div>
-                </div>
 
-                <!-- Right side -->
+                    <!-- Contacts left side -->
+                    <div class="contacts-container">
+
+                        <!-- Blue notice -->
+                        <div class="notice">
+                            <i id="bell" class="fas fa-bell-slash"></i>
+                            <div class="user-name">
+                                <span>Ricevi notifiche di nuovi messaggi</span>
+                                <span id="notify" >Attiva notifiche desktop</span>
+                            </div>
+                        </div>
+
+                        <!-- Search bar -->
+                        <div class="search-bar-container">
+                            <div class="search-bar">
+                                <i class="fas fa-search icons fs-small"></i>
+                                <input type="label" placeholder="Cerca o inizia una nuova chat">
+                            </div> 
+                        </div>
+
+                        <!-- Contacts list -->
+                        <ul class="contact-list">
+                            <!-- Single contact -->
+                            <li v-for='contact in contacts' class="single-contact">
+                                <img class="avatar-img" :src="'img/avatar' + contact.avatar + '.jpg'" alt="contact.name">
+                                <div class="user-name">
+                                    <span>{{contact.name}}</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- RIGHT SIDE -->
                 <div class="right-side">
                     <!-- Top bar -->
                     <div class="top-bar">
                         <div class="top-bar-left">
                             <img class="avatar-img" src="img/avatar_1.jpg" alt="">
-                            <span>NOME</span>
+                            <div class="user-name">
+                                <span>NOME</span>
+                            </div>
                         </div>
                         <div class="top-bar-right">
                             <i class="fas fa-search"></i>
@@ -44,10 +82,14 @@
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
                     </div>
-                    <!-- Message section -->
-                    <div class="messages"></div>
-                    <!-- Input section -->
-                    <div class="input-bar"></div>
+
+                    <!-- MAIN -->
+                    <main>
+                        <!-- Message section -->
+                        <div class="messages"></div>
+                        <!-- Input section -->
+                        <div class="input-bar"></div>
+                    </main>
                 </div>
             </div>
         </div>
