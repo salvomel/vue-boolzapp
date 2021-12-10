@@ -56,7 +56,7 @@
                         <!-- Contacts list -->
                         <ul class="contact-list">
                             <!-- Single contact -->
-                            <li v-for='contact in contacts' class="single-contact">
+                            <li v-for='(contact, index) in contacts' class="single-contact" :class="{active : index === activeChat}">
                                 <img class="avatar-img" :src="'img/avatar' + contact.avatar + '.jpg'" alt="contact.name">
                                 <div class="user-name">
                                     <span>{{contact.name}}</span>
@@ -71,9 +71,10 @@
                     <!-- Top bar -->
                     <div class="top-bar">
                         <div class="top-bar-left">
-                            <img class="avatar-img" src="img/avatar_1.jpg" alt="">
+                            <img class="avatar-img" :src="'img/avatar' + contacts[activeChat].avatar + '.jpg'" alt="contacts[activeChat].name">
                             <div class="user-name">
-                                <span>NOME</span>
+                                <span>{{contacts[activeChat].name}}</span>
+                                <span class="last-seen">Ultimo accesso oggi alle</span>
                             </div>
                         </div>
                         <div class="top-bar-right">
@@ -86,10 +87,19 @@
                     <!-- MAIN -->
                     <main>
                         <!-- Message section -->
-                        <div class="messages"></div>
-                        <!-- Input section -->
-                        <div class="input-bar"></div>
+                        <div v-for="(message, index) in contacts[activeChat].messages" class="messages" :class="message.status">
+
+                            <div class="text">{{message.text}}</div>
+                            <div class="date">{{message.date}}</div>
+                        </div>
                     </main>
+
+                    <!-- Input section -->
+                    <div class="input-bar">
+                        <i class="far fa-smile"></i>
+                        <input type="label" placeholder="Scrivi un messaggio">
+                        <i class="fas fa-microphone"></i>
+                    </div>
                 </div>
             </div>
         </div>
