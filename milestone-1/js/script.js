@@ -92,10 +92,15 @@ const app = new Vue(
                         }
                     ],
                 },
-            ]
+            ],
+            activeChat: 0,
             
         },
         methods: {
+            // Chat attiva
+            showChat(index){
+                this.activeChat = index;
+            },
         }
     }
 );

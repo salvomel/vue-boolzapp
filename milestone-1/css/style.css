@@ -34,8 +34,6 @@ body {
 
 .right-side {
     width: 65%;
-    /* TEST */
-    background-color: lightsalmon;
     height: 100%;
 }
 
@@ -86,7 +84,7 @@ body {
 }
 
 #bell {
-    background-color: #fff;
+    background-color: white;
     border-radius: 50px;
     padding: 15px 12px;
     margin-right: 10px;
@@ -138,10 +136,59 @@ body {
     border-bottom: 1px solid #e9ebea;
 }
 
-.messages {
+main {
     background-image: url(../img/mine.jpg);
+    height: calc(100% - 100px);
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
 }
 
+.last-seen {
+    color: #777777;
+    font-size: 12px;
+}
+
+/* Messages classes */
+.received {
+    align-self: flex-start;
+    background-color: white;
+}
+
+.sent {
+    align-self: flex-end;
+    background-color: #d5f9ba;
+}
+
+
+.active {
+    background-color: #e9ebea;
+}
+
+.messages {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.date {
+    color: #b7babd;
+    font-size: 10px;
+    text-align: right;
+    margin-top: 5px;
+}
 .input-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     background-color: #eaeaea;
+    height: 50px;
+    padding: 0 10px;
+}
+.input-bar input {
+    width: 80%;
+    padding: 8px;
+    border: none;
+}
+.input-bar i {
+    color: #777777;
 }
