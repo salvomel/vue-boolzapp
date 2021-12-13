@@ -54,13 +54,15 @@
                     <ul class="contact-list">
 
                         <!-- Single contact -->
-                        <li 
-                           @click="showChat(index)"
-                           v-for="(contact, index) in contacts" 
-                           class="single-contact" 
-                           :class="{active : index === activeChat}"
+                        <li @click="showChat(index)"
+                            v-for="(contact, index) in contacts" 
+                            class="single-contact" 
+                            :class="{active : index === activeChat}"
                         >
-                            <img class="avatar-img" :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                            <img class="avatar-img" 
+                                 :src="'img/avatar' + contact.avatar + '.jpg'" 
+                                 :alt="contact.name"
+                            >
                             <div class="user-name">
                                 <span>{{contact.name}}</span>
                             </div>
@@ -73,7 +75,10 @@
                     <!-- Top bar -->
                     <div class="top-bar">
                         <div class="top-bar-left">
-                            <img class="avatar-img" :src="'img/avatar' + contacts[activeChat].avatar + '.jpg'" :alt="contacts[activeChat].name">
+                            <img class="avatar-img" 
+                                 :src="'img/avatar' + contacts[activeChat].avatar + '.jpg'" 
+                                 :alt="contacts[activeChat].name"
+                                >
                             <div class="user-name">
                                 <span>{{contacts[activeChat].name}}</span>
                                 <span class="last-seen">Ultimo accesso oggi alle</span>
@@ -89,7 +94,10 @@
                     <!-- MAIN -->
                     <main>
                         <!-- Message section -->
-                        <div v-for="(message, index) in contacts[activeChat].messages" class="messages" :class="message.status">
+                        <div v-for="(message, index) in contacts[activeChat].messages" 
+                             class="messages" 
+                             :class="message.status"
+                            >
 
                             <div class="text">{{message.text}}</div>
                             <div class="date">{{message.date}}</div>
@@ -99,7 +107,11 @@
                     <!-- Input section -->
                     <div class="input-bar">
                         <i class="far fa-smile"></i>
-                        <input @keyup.enter="pushNewMessage(activeChat)" v-model=newMessage type="text" placeholder="Scrivi un messaggio">
+                        <input type="text" 
+                               @keyup.enter="pushNewMessage(activeChat)" 
+                               v-model=newMessage 
+                               placeholder="Scrivi un messaggio" 
+                            >
                         <i class="fas fa-microphone"></i>
                     </div>
                 </div>

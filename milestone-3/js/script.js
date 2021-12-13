@@ -2,6 +2,7 @@
 // Aggiunta di un messaggio: 
 // l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
 // Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
+
 Vue.config.devtools = true;
 
 const app = new Vue(
@@ -109,7 +110,7 @@ const app = new Vue(
                 // trim per togliere gli spazi prima e/o dopo del testo 
                 const newMessageTrim = this.newMessage.trim();
                 if(newMessageTrim.length > 0) {
-                    
+
                     this.contacts[this.activeChat].messages.push({
                         date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                         text: this.newMessage,
@@ -117,6 +118,17 @@ const app = new Vue(
                     });
                     this.newMessage='';
                 }
+                
+                // Risposta automatica dopo 1 secondo
+                setTimeout (() => {
+
+                    // Cambio text e status
+                    this.contacts[this.activeChat].messages.push({
+                        date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                        text: 'Ok!',
+                        status: 'received'
+                    });
+                }, 1000);
             }
         }
     }
