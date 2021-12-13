@@ -33,37 +33,33 @@
                         </div>
                     </div>
 
-                    <!-- Contacts left side -->
-                    <div class="contacts-container">
-
-                        <!-- Blue notice -->
-                        <div class="notice">
-                            <i id="bell" class="fas fa-bell-slash"></i>
-                            <div class="user-name">
-                                <span>Ricevi notifiche di nuovi messaggi</span>
-                                <span id="notify" >Attiva notifiche desktop</span>
-                            </div>
+                    <!-- Blue notice -->
+                    <div class="notice">
+                        <i id="bell" class="fas fa-bell-slash"></i>
+                        <div class="user-name">
+                            <span>Ricevi notifiche di nuovi messaggi</span>
+                            <span id="notify" >Attiva notifiche desktop</span>
                         </div>
-
-                        <!-- Search bar -->
-                        <div class="search-bar-container">
-                            <div class="search-bar">
-                                <i class="fas fa-search icons fs-small"></i>
-                                <input type="label" placeholder="Cerca o inizia una nuova chat">
-                            </div> 
-                        </div>
-
-                        <!-- Contacts list -->
-                        <ul class="contact-list">
-                            <!-- Single contact -->
-                            <li v-for='(contact, index) in contacts' class="single-contact" :class="{active : index === activeChat}">
-                                <img class="avatar-img" :src="'img/avatar' + contact.avatar + '.jpg'" alt="contact.name">
-                                <div class="user-name">
-                                    <span>{{contact.name}}</span>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
+
+                    <!-- Search bar -->
+                    <div class="search-bar-container">
+                        <div class="search-bar">
+                            <i class="fas fa-search icons fs-small"></i>
+                            <input type="label" placeholder="Cerca o inizia una nuova chat">
+                        </div> 
+                    </div>
+
+                    <!-- Contacts list -->
+                    <ul class="contact-list">
+                        <!-- Single contact -->
+                        <li v-for='(contact, index) in contacts' class="single-contact" :class="{active : index === activeChat}">
+                            <img class="avatar-img" :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                            <div class="user-name">
+                                <span>{{contact.name}}</span>
+                            </div>
+                        </li>
+                    </ul>
                 </aside>
 
                 <!-- RIGHT SIDE -->
@@ -71,7 +67,7 @@
                     <!-- Top bar -->
                     <div class="top-bar">
                         <div class="top-bar-left">
-                            <img class="avatar-img" :src="'img/avatar' + contacts[activeChat].avatar + '.jpg'" alt="contacts[activeChat].name">
+                            <img class="avatar-img" :src="'img/avatar' + contacts[activeChat].avatar + '.jpg'" :alt="contacts[activeChat].name">
                             <div class="user-name">
                                 <span>{{contacts[activeChat].name}}</span>
                                 <span class="last-seen">Ultimo accesso oggi alle</span>
