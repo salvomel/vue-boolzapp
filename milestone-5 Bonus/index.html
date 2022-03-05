@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boolzapp</title>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -58,20 +58,30 @@
                     <ul class="contact-list">
 
                         <!-- Single contact -->
-                        <li @click="showChat(index)"
-                            v-for="(contact, index) in contacts" 
-                            v-if="contact.visible"
-                            class="single-contact" 
-                            :class="{'active' : index === activeChat}"
-                        >
-                            <img class="avatar-img" 
-                                 :src="'img/avatar' + contact.avatar + '.jpg'" 
-                                 :alt="contact.name"
-                                >
-                            <div class="user-name">
-                                <span>{{contact.name}}</span>
-                            </div>
-                        </li>
+                        <template v-for="(contact, index) in contacts" >
+                            
+                            <li @click="showChat(index)"
+                                v-if="contact.visible"
+                                class="single-contact" 
+                                :class="{'active' : index === activeChat}"
+                            >
+                                <img class="avatar-img" 
+                                     :src="'img/avatar' + contact.avatar + '.jpg'" 
+                                     :alt="contact.name"
+                                    >
+                                <div class="user-name">
+                                    <span>{{contact.name}}</span>
+                                </div>
+    
+                                <!-- <div class="contact-last-message-text">
+                                    {{getContactLastMessageText(contact)}}
+                                </div>
+    
+                                <div class="contact-last-message-date">
+                                    {{getContactLastMessageDate(contact)}}
+                                </div> -->
+                            </li>
+                        </template>
                     </ul>
                 </aside>
 
@@ -131,7 +141,7 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/script.js"></>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
 </body>
 </html>

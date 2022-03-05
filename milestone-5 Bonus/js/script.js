@@ -98,7 +98,7 @@ const app = new Vue(
             filterText: '',
 
             // Riferiti al menu a tendina
-            activeMenu: 0,
+            activeMenu: null,
             menuVisible: false,
         },
         methods: {
@@ -139,7 +139,7 @@ const app = new Vue(
             searchFilter() {
                 this.contacts.forEach((contact) => {
 
-                    // If per vedere filterText è incluso in contact.name
+                    // If per vedere se filterText è incluso in contact.name
                     // toLowerCase per portare tutto a minuscolo
                     if(contact.name.toLowerCase().includes(this.filterText.toLowerCase())) {
                         contact.visible = true;
@@ -170,7 +170,22 @@ const app = new Vue(
                 if(this.menuVisible === true) {
                     this.menuVisible = false;
                 }
-            }
+            },
+
+            // getContactLastMessageDate(contact) {
+            //     const contactMessages = contact.messages;
+            //     return contactMessages[contactMessages.length - 1].date;
+            // },
+
+            // getContactLastMessageText(contact) {
+            //     const contactMessages = contact.messages;
+            //     const lastMessageText = contactMessages[contactMessages.length - 1].text;
+
+            //     let cutMessageText = lastMessageText.slice(0, 20);
+            //     if (cutMessageText.length > 19) {
+            //          cutMessageText +=
+            //     }
+            // }
         }
     }
 );
